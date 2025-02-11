@@ -2,6 +2,7 @@ import { useState } from "react";
 import "./App.css";
 import AllPlayers from "./components/AllPlayers/AllPlayers";
 import Header from "./components/Header/Header";
+import Footer from "./components/Footer/Footer";
 
 function App() {
   const [isActive, setIsActive] = useState(true);
@@ -32,6 +33,7 @@ function App() {
         handleSelectedPlayer={handleSelectedPlayer}
         handleClicked={handleClicked}
       />
+      <Footer/>
     </>
   );
 }
