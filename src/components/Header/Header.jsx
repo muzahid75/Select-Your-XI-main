@@ -2,7 +2,8 @@ import logo from "../../assets/logo.png";
 import dollar from "../../assets/dollar.png";
 import hero from "../../assets/bg-shadow.png";
 import banner from "../../assets/banner-main.png";
-const Header = () => {
+import PropTypes from "prop-types";
+const Header = ({price,handlePrice}) => {
   return (
     <header className="my-10 w-[1320px] mx-auto ">
       {/* navbar  */}
@@ -17,7 +18,7 @@ const Header = () => {
           <li>Schedules</li>
           <li>
             <button className="btn">
-              0 coin <img src={dollar} alt="" />{" "}
+              {price} coin <img src={dollar} alt="" />{" "}
             </button>
           </li>
         </ul>
@@ -36,7 +37,7 @@ const Header = () => {
         </h1>
         <p className="text-2xl opacity-70">Beyond Boundaries Beyond Limits</p>
         <div className="border border-yellow-300 p-2 rounded-2xl">
-          <button className="btn rounded-2xl bg-amber-300 text-black border-none font-bold">
+          <button onClick={()=>handlePrice()} className="btn rounded-2xl bg-amber-300 text-black border-none font-bold">
             Claim Free Credit
           </button>
         </div>
@@ -44,5 +45,9 @@ const Header = () => {
     </header>
   );
 };
+Header.propTypes={
+  price:PropTypes.number.isRequired,
+  handlePrice:PropTypes.func.isRequired,
+}
 
 export default Header;

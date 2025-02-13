@@ -3,7 +3,7 @@ import subscribe from "../../assets/button.png";
 import hero from "../../assets/bg-shadow.png";
 const Footer = () => {
   return (
-    <div className="relative mt-80 border bg-black border-red-500 pb-10">
+    <div className="relative mt-80 bg-black pb-10">
       <div className="rounded-2xl absolute p-5 -top-46 left-22 w-[1340px] h-[380px] border border-white">
         <div className="border rounded-2xl space-y-3 flex flex-col justify-center items-center h-[332px] border-white" style={{ backgroundImage: `url(${hero})`, backgroundColor: "white" }}>
           <h2 className="text-3xl font-bold">Subscribe to our Newsletter</h2>
@@ -57,8 +57,8 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <div className="divider text-amber-50"></div>
-      <div>
+      <div className="divider border-t border-white"></div>
+      <div className="">
         <p className="text-center text-gray-400">
           @2024 Your Company All Rights Reserved.
         </p>
