@@ -3,6 +3,7 @@ import "./App.css";
 import AllPlayers from "./components/AllPlayers/AllPlayers";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
+import toast, { Toaster } from 'react-hot-toast';
 
 function App() {
   const [isActive, setIsActive] = useState(true);
@@ -16,6 +17,7 @@ function App() {
   const handlePrice =()=>{
     const newPrice = price+6000000;
     setPrice(newPrice)
+    toast.success("successfully added money")
   }
 
   const handleAddMOney=(p)=>{
@@ -38,21 +40,22 @@ function App() {
     const exist = selectedPlayers.find(p =>p.playerId === player.playerId)
     // const numberOfItem= 
     if(exist){
-      alert("Already added");
+      toast.error("Already added");
       return;
     }
     if (selectedPlayers.length >= 6) {
-      alert("You can't add more than 6 players");
+      toast.error("You can't add more than 6 players");
       return;
     }  
     if(price<player.biddingPrice){
-      alert("Not enouggh money")
+      toast.error("Not enouggh money")
       return;
     }
     else{
       handleAddMOney(player.biddingPrice)
       const newPlayers = [...selectedPlayers, player];
       setSelectedPlayers(newPlayers);
+      toast.success("successfully add player")
     }
     
   };
@@ -61,12 +64,14 @@ function App() {
     handleReduceMoney(id);
     const remaining = selectedPlayers.filter((player) => player.playerId !== id);
     setSelectedPlayers(remaining);
+    toast.success("successfully removed")
   };
   
 
   return (
     <>
       <Header price={price} handlePrice={handlePrice} />
+      <Toaster />
       <AllPlayers
         isActive={isActive}
         handleRemove={handleRemove}
